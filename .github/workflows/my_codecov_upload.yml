@@ -18,11 +18,11 @@ name: Build
 on:
   # Triggered whenever push to the main branch
   push:
-    branches: [ "main" ]
+    branches: [ "master" ]
 
   # Triggered whenever a pull request is created on main
   pull_request:
-    branches: [ "main" ]
+    branches: [ "master" ]
     types: [opened]
 
   # Allow manual trigger
@@ -39,27 +39,7 @@ jobs:
       - name: Checking out
         uses: actions/checkout@v3
       
-      
-      - name: OpenCV
-        run: git clone https://github.com/opencv/opencv.git
-      
-      - name: install 0
-      - run: git -C opencv checkout 4.x
-      
-      - name: install 1
-        run: mkdir -p build && cd build
-      
-      - name: install 2
-        run: cmake ../opencv
-
-      - name: install 3
-        run: make -j4
-
-      - name: install 4
-        run: sudo make install
-
-######################################
-# Install some system pacakges
+      # Install some system pacakges
       - name: Install ROS 2 Foxy packages
         run: |
           sudo apt update
@@ -150,44 +130,28 @@ jobs:
       #   run: bash ./install_ros2_foxy.sh
 
 #######################################
-      - name: Gazebo
-        # working-directory: ${{github.workspace}}/matplotplusplus/build
-        run: sudo apt-get install ros-foxy-gazebo-*
-      
-      - name: Install 1
-        # working-directory: ${{github.workspace}}/matplotplusplus/build
-        run: sudo apt install ros-foxy-cartographer
+      - name: Gazebo and other ros installation
+        run: |
+          sudo apt-get install ros-foxy-gazebo-*
+          sudo apt install ros-foxy-cartographer
+          sudo apt install ros-foxy-cartographer-ros
+          sudo apt install ros-foxy-navigation2
+          sudo apt install ros-foxy-nav2-bringup
+          sudo apt install ros-foxy-dynamixel-sdk
+          sudo apt install ros-foxy-turtlebot3-msgs
+          sudo apt install ros-foxy-turtlebot3
 
-      - name: Install 2
-        # working-directory: ${{github.workspace}}/NumCpp
-        run: sudo apt install ros-foxy-cartographer-ros
 
-      - name: Install 3
-        # working-directory: ${{github.workspace}}/NumCpp
-        run: sudo apt install ros-foxy-navigation2
-
-      - name: Install 4
-        # working-directory: ${{github.workspace}}/NumCpp/build
-        run: sudo apt install ros-foxy-nav2-bringup
-
-      - name: Install 5
-        # working-directory: ${{github.workspace}}/NumCpp/build
-        run: sudo apt install ros-foxy-dynamixel-sdk
-
-      - name: TurtleBot3
-        run: sudo apt install ros-foxy-turtlebot3-msgs
-
-      - name: Install 1
-        run: sudo apt install ros-foxy-turtlebot3
-
+      # Install OpenCV
       - name: OpenCV
-        run: sudo apt-get install libboost-all-dev
-      
-      - name: Python Colcon Common Extensions
-        run: sudo apt install -y ros-foxy-ros-base python3-colcon-common-extensions
-###############git ad
-
-      
+        run: |
+          git clone https://github.com/opencv/opencv.git
+          git -C opencv checkout 4.x
+          mkdir -p build && cd build
+          cmake ../opencv
+          make -j4
+          sudo make install
+          sudo apt-get install libboost-all-dev
 
       # Build for test coverage
       - name: Configure CMake flags and build exectables
