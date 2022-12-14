@@ -69,14 +69,14 @@ jobs:
           sudo apt install ros-foxy-dynamixel-sdk
 
       - name: Turtlebot3 installation
-         run: |
+        run: |
           sudo apt install ros-foxy-turtlebot3-msgs
           sudo apt install ~ros-foxy-turtlebot3-.*
           sudo apt-get install gnuplot
           sudo apt-get install libboost-all-dev
         
       - name: Navigation Stack
-         run: |
+        run: |
           sudo apt install ros-foxy-navigation2
           sudo apt install ros-foxy-nav2-bringup
 
