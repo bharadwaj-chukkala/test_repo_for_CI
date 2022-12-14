@@ -60,91 +60,25 @@ jobs:
           source /opt/ros/foxy/setup.bash
 
 
-#       - name: ROS Foxy
-#       - run : locale  # check for UTF-8
 
-#       - name: ROS Foxy1
-#       - run : sudo apt update && sudo apt install locales
-
-#       - name: ROS Foxy2
-#       - run : sudo locale-gen en_US en_US.UTF-8
-
-#       - name: ROS Foxy3
-#       - run : sudo update-locale LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8
-
-#       - name: ROS Foxy4
-#       - run : export LANG=en_US.UTF-8
-
-#       - name: ROS Foxy5
-#       - run : locale  # verify settings
-
-#       - name: ROS Foxy6
-#       - run : sudo apt install software-properties-common
-
-#       - name: ROS Foxy7
-#       - run : sudo add-apt-repository universe 
-      
-#       - name: ROS Foxy8
-#       - run : sudo apt update && sudo apt install curl
-      
-#       - name: ROS Foxy9
-#       - run : sudo curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key -o /usr/share/keyrings/ros-archive-keyring.gpg
-
-#       - name: ROS Foxy10        
-#       - run : echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] http://packages.ros.org/ros2/ubuntu $(. /etc/os-release && echo $UBUNTU_CODENAME) main" | sudo tee /etc/apt/sources.list.d/ros2.list > /dev/null
-
-#       - name: ROS Foxy11
-#       - run : sudo apt update
-
-#       - name: ROS Foxy12
-#       - run : sudo apt upgrade
-
-#       - name: ROS Foxy13
-#       - run : sudo apt install ros-foxy-desktop python3-argcomplete
-      
-#       - name: ROS Foxy14
-#       - run : sudo apt install -y lcov
-
-
-# ### Environment Setup
-#       - name: ROS Foxy15
-#       - run: source /opt/ros/foxy/setup.bash
-
-      
-      
-      
-      
-      
-      
-      
-      
-      #   # working-directory: ${{github.workspace}}/matplotplusplus
-      #   run: wget https://raw.githubusercontent.com/ROBOTIS-GIT/robotis_tools/master/install_ros2_foxy.sh
-
-      # - name: Install 1
-      #   # working-directory: ${{github.workspace}}/matplotplusplus
-      #   run: sudo chmod 755 ./install_ros2_foxy.sh
-
-      # - name: Install 2
-      #   # working-directory: ${{github.workspace}}/matplotplusplus/build
-      #   run: bash ./install_ros2_foxy.sh
-
-#######################################
       - name: Gazebo and other ros installation
         run: |
           sudo apt-get install ros-foxy-gazebo-*
           sudo apt install ros-foxy-cartographer
           sudo apt install ros-foxy-cartographer-ros
           sudo apt install ros-foxy-dynamixel-sdk
+
+      - name: Turtlebot3 installation
+      - run: |
           sudo apt install ros-foxy-turtlebot3-msgs
           sudo apt install ~ros-foxy-turtlebot3-.*
           sudo apt-get install gnuplot
           sudo apt-get install libboost-all-dev
         
-        - name: Navigation Stack
-        - run : |
-            sudo apt install ros-foxy-navigation2
-            sudo apt install ros-foxy-nav2-bringup
+      - name: Navigation Stack
+      - run: |
+          sudo apt install ros-foxy-navigation2
+          sudo apt install ros-foxy-nav2-bringup
 
 
       # Install OpenCV
