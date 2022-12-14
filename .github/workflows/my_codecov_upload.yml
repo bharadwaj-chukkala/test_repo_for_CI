@@ -135,11 +135,16 @@ jobs:
           sudo apt-get install ros-foxy-gazebo-*
           sudo apt install ros-foxy-cartographer
           sudo apt install ros-foxy-cartographer-ros
-          sudo apt install ros-foxy-navigation2
-          sudo apt install ros-foxy-nav2-bringup
           sudo apt install ros-foxy-dynamixel-sdk
           sudo apt install ros-foxy-turtlebot3-msgs
-          sudo apt install ros-foxy-turtlebot3
+          sudo apt install ~ros-foxy-turtlebot3-.*
+          sudo apt-get install gnuplot
+          sudo apt-get install libboost-all-dev
+        
+        - name: Navigation Stack
+        - run : |
+            sudo apt install ros-foxy-navigation2
+            sudo apt install ros-foxy-nav2-bringup
 
 
       # Install OpenCV
@@ -151,7 +156,6 @@ jobs:
           cmake ../opencv
           make -j4
           sudo make install
-          sudo apt-get install libboost-all-dev
 
       # Build for test coverage
       - name: Configure CMake flags and build exectables
