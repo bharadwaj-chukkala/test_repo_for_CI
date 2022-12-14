@@ -41,7 +41,10 @@ jobs:
       
       
       - name: OpenCV
-        run: git clone https://github.com/opencv/opencv.git https://github.com/ROBOTIS-GIT/turtlebot3_manipulation#foxy-devel
+        run: git clone https://github.com/opencv/opencv.git
+      
+      - name: install 0
+      - run: git -C opencv checkout 4.x
       
       - name: install 1
         run: mkdir -p build && cd build
