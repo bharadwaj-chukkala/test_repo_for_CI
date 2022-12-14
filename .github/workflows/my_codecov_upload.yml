@@ -58,14 +58,12 @@ jobs:
 ######################################
 
       - name: ROS Foxy
-      - run : |
-### Setup Locale
-          locale  # check for UTF-8
-          sudo apt update && sudo apt install locales
-          sudo locale-gen en_US en_US.UTF-8
-          sudo update-locale LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8
-          export LANG=en_US.UTF-8
-          locale  # verify settings
+      - run : locale  # check for UTF-8
+      - run : sudo apt update && sudo apt install locales
+      - run : sudo locale-gen en_US en_US.UTF-8
+      - run : sudo update-locale LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8
+      - run : export LANG=en_US.UTF-8
+      - run : locale  # verify settings
 
 ### Setup sources
           sudo apt install software-properties-common
