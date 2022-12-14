@@ -76,12 +76,11 @@ jobs:
       - run : sudo apt upgrade
 
       - run : sudo apt install ros-foxy-desktop python3-argcomplete
-      - run : sudo apt install ros-dev-tools
       - run : sudo apt install -y lcov
 
 
 ### Environment Setup
-          source /opt/ros/foxy/setup.bash
+      - run: source /opt/ros/foxy/setup.bash
 
       
       
