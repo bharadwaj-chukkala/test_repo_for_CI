@@ -144,7 +144,7 @@ jobs:
       
       - name: Python Colcon Common Extensions
         run: sudo apt install -y ros-foxy-ros-base python3-colcon-common-extensions
-##################
+###############
 
       # # Install some system pacakges
       # - name: Install ROS 2 Humble packages
