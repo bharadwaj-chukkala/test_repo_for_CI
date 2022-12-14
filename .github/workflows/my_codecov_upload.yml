@@ -59,27 +59,52 @@ jobs:
 
       - name: ROS Foxy
       - run : locale  # check for UTF-8
-      - run : sudo apt update && sudo apt install locales
-      - run : sudo locale-gen en_US en_US.UTF-8
-      - run : sudo update-locale LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8
-      - run : export LANG=en_US.UTF-8
-      - run : locale  # verify settings
-      - run : sudo apt install software-properties-common
-      - run : sudo add-apt-repository universe 
 
+      - name: ROS Foxy1
+      - run : sudo apt update && sudo apt install locales
+
+      - name: ROS Foxy2
+      - run : sudo locale-gen en_US en_US.UTF-8
+
+      - name: ROS Foxy3
+      - run : sudo update-locale LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8
+
+      - name: ROS Foxy4
+      - run : export LANG=en_US.UTF-8
+
+      - name: ROS Foxy5
+      - run : locale  # verify settings
+
+      - name: ROS Foxy6
+      - run : sudo apt install software-properties-common
+
+      - name: ROS Foxy7
+      - run : sudo add-apt-repository universe 
+      
+      - name: ROS Foxy8
       - run : sudo apt update && sudo apt install curl
+      
+      - name: ROS Foxy9
       - run : sudo curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key -o /usr/share/keyrings/ros-archive-keyring.gpg
-              
+
+      - name: ROS Foxy10        
       - run : echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] http://packages.ros.org/ros2/ubuntu $(. /etc/os-release && echo $UBUNTU_CODENAME) main" | sudo tee /etc/apt/sources.list.d/ros2.list > /dev/null
 
+      - name: ROS Foxy11
       - run : sudo apt update
+
+      - name: ROS Foxy12
       - run : sudo apt upgrade
 
+      - name: ROS Foxy13
       - run : sudo apt install ros-foxy-desktop python3-argcomplete
+      
+      - name: ROS Foxy14
       - run : sudo apt install -y lcov
 
 
 ### Environment Setup
+      - name: ROS Foxy15
       - run: source /opt/ros/foxy/setup.bash
 
       
