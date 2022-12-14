@@ -18,12 +18,10 @@ name: Build
 on:
   # Triggered whenever push to the main branch
   push:
-    branches: [ "master" ]
     branches: [ "tester" ]
 
   # Triggered whenever a pull request is created on main
   pull_request:
-    branches: [ "master" ]
     branches: [ "tester" ]
     types: [opened]
 
