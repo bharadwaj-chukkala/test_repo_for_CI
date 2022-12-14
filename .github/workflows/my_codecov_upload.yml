@@ -19,7 +19,7 @@ on:
   # Triggered whenever push to the main branch
   push:
     branches: [ "master" ]
-    branched: [ "tester" ]
+    branches: [ "tester" ]
 
   # Triggered whenever a pull request is created on main
   pull_request:
