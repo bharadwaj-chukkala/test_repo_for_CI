@@ -81,7 +81,7 @@ jobs:
       
       # Upload coverage result to CodeCov
       - name: Upload coverage result to CodeCov
-        uses: codecov/codecov-action@v3
+        uses: codecov/codecov-action@v2
         with:
           token: ${{ secrets.CODECOV_TOKEN }} # not required for public repos
           files: ${{github.workspace}}/install/cpp_pubsub/lib/cpp_pubsub/coverage_cleaned.info
