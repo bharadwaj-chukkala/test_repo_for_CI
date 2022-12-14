@@ -76,8 +76,7 @@ jobs:
       - run : sudo apt upgrade
 
       - run : sudo apt install ros-foxy-desktop python3-argcomplete
-      - run : sudo apt install ros-dev-tools
-
+      - run : sudo apt install ros-dev-tool
       - run : sudo apt install -y lcov
 
 
