@@ -43,7 +43,7 @@ jobs:
         run: |
           mkdir -p ~/foxy_ws/src
           cd ~/foxy_ws/src
-          git clone foxy-devel https://github.com/ROBOTIS-GIT/turtlebot3_manipulation.git
+          git clone -b foxy-devel https://github.com/ROBOTIS-GIT/turtlebot3_manipulation.git
           cd ~/foxy_ws && colcon build --symlink-install
 
       - name: Navigation Stack
