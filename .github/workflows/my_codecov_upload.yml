@@ -59,6 +59,15 @@ jobs:
           sudo apt install -y lcov
           source /opt/ros/foxy/setup.bash
 
+      # Install OpenCV
+      - name: OpenCV
+        run: |
+          git clone https://github.com/opencv/opencv.git
+          git -C opencv checkout 4.x
+          mkdir -p build && cd build
+          cmake ../opencv
+          make -j4
+          sudo make install
 
 
       - name: Gazebo and other ros installation
@@ -76,6 +85,14 @@ jobs:
           sudo apt-get install gnuplot
           sudo apt-get install libboost-all-dev
         
+      - name: TB Manipulation
+        run: |
+          mkdir -p ~/foxy_ws/src
+          cd ~/foxy_ws/src
+          git clone -b foxy-devel https://github.com/ROBOTIS-GIT/turtlebot3_manipulation.git
+          cd ~/foxy_ws && colcon build --symlink-install
+          
+        
       - name: Navigation Stack
         run: |
           sudo apt install ros-foxy-nav2-map-server
@@ -83,15 +100,6 @@ jobs:
           sudo apt install ros-foxy-nav2-bringup
 
 
-      # Install OpenCV
-      - name: OpenCV
-        run: |
-          git clone https://github.com/opencv/opencv.git
-          git -C opencv checkout 4.x
-          mkdir -p build && cd build
-          cmake ../opencv
-          make -j4
-          sudo make install
 
       # Build for test coverage
       - name: Configure CMake flags and build exectables
