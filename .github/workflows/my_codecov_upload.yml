@@ -41,7 +41,6 @@ jobs:
 
       - name: Git install
         run : |
-          sudo apt install libcurl-devel
           sudo apt-get install git
       
       - name: TB Manipulation
