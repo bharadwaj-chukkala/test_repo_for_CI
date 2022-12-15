@@ -50,7 +50,7 @@ jobs:
           git clone https://github.com/ROBOTIS-GIT/turtlebot3_manipulation.git
           cd turtlebot3_manipulation
           git checkout foxy-devel
-          cd ~/foxy_ws && colcon build --symlink-install
+          colcon build --symlink-install
 
       - name: Navigation Stack
         run: |
