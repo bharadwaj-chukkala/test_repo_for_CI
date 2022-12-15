@@ -41,7 +41,7 @@ jobs:
 
       - name: Git install
         run : |
-          yum/dnf install libcurl-devel
+          sudo apt install libcurl-devel
           sudo apt-get install git
       
       - name: TB Manipulation
