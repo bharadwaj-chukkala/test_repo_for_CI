@@ -38,6 +38,9 @@ jobs:
       # We want to use GitHub CI checkout version 3 to check out our branches
       - name: Checking out
         uses: actions/checkout@v3
+
+      - name: Git install
+        run : sudo apt-get install git
       
       - name: TB Manipulation
         run: |
